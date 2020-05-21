@@ -302,7 +302,7 @@
 
   /**
    * Lets the user know there was some sort of error
-   * @param {object} - the error response
+   * @param {object} resp - the error response
    */
   function handleError(resp) {
     id("result").textContent = "Looks like something went wrong!" + resp;
