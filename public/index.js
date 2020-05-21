@@ -34,12 +34,13 @@
     id("curr-bet").addEventListener("keyup", enterBet);
   }
 
+  /** Fetches the deck to be used for the game */
   function getDeck() {
     fetch("deck")
-    .then(checkStatus)
-    .then(resp => resp.json())
-    .then(data => deck = data)
-    .catch(handleError);
+      .then(checkStatus)
+      .then(resp => resp.json())
+      .then(data => {deck = data})
+      .catch(handleError);
   }
 
   /** Switches the page from the menu-view to the game-view with updated money */
@@ -299,8 +300,9 @@
     return newCard;
   }
 
+  /** Lets the user know there was some sort of error */
   function handleError(resp) {
-    console.error(resp);
+    id("result").textContent = "Looks like something went wrong!" + resp;
   }
 
   /**
