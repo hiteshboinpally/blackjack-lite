@@ -39,7 +39,7 @@
     fetch("deck")
       .then(checkStatus)
       .then(resp => resp.json())
-      .then(data => {deck = data})
+      .then(data => {deck = data;})
       .catch(handleError);
   }
 
@@ -300,7 +300,10 @@
     return newCard;
   }
 
-  /** Lets the user know there was some sort of error */
+  /**
+   * Lets the user know there was some sort of error
+   * @param {object} - the error response
+   */
   function handleError(resp) {
     id("result").textContent = "Looks like something went wrong!" + resp;
   }
