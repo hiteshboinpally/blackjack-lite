@@ -6,7 +6,6 @@
  * This is the API to retrieve the deck and turn results of my Blackjack game
  */
 
-
 "use strict";
 const fs = require("fs").promises;
 const express = require("express");
