@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  Name: Hitesh Boinpally
+  Date: April 22, 2020
+  Section: CSE 154 AC
+  This is the index.html page for my Blackjack Lite game. It encompasses a simpler version of
+  Blackjack. It includes a menu, game, and end view.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blackjack Lite</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lustria&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Blackjack Lite</h1>
+    </header>
+    <main>
+      <article id="menu-view" class="flex">
+        <p>Blackjack Lite is just like Blackjack with a few changes!!</p>
+        <ul>
+          <li>Only one suit is used</li>
+          <li>You can only hit or stand (no splitting or doubling down)</li>
+          <li>There is no insurance or bonus for Blackjacks</li>
+          <li>Aces are always treated as 11</li>
+        </ul>
+        <p>
+          How much money would you like to start with? <br>
+          <label><input type="radio" name="money-count" value="100"> $100</label>
+          <label><input type="radio" name="money-count" value="500" checked> $500</label>
+          <label><input type="radio" name="money-count" value="1000"> $1,000</label>
+        </p>
+        <button id="begin">Begin!</button>
+      </article>
+      <article id="game-view" class="flex hidden">
+        <section id="left-column" class="flex">
+          <label id="bet" class="flex">
+            Current Bet: <input id="curr-bet" type="number" placeholder="Enter a bet..." value=0 min="0">
+          </label>
+          <article id="game-options">
+            <button id="hit" class="hidden top-button">Hit</button>
+            <button id="continue" class="top-button">Continue</button>
+            <h3> or </h3>
+            <button id="stand" class="hidden bottom-button">Stand</button>
+            <button id="quit" class="bottom-button">Quit</button>
+          </article>
+          <!--
+            All images from publicdomainvectors.org
+            https://publicdomainvectors.org/en/playing-cards-clipart-free-download
+          -->
+        </section>
+        <section id="middle-column" class="flex">
+          <article id="dealer">
+            <h2>Dealer's Hand</h2>
+            <div id="dealer-hand" class="flex">
+              <div class="empty-card"></div>
+            </div>
+          </article>
+          <article id="player">
+            <h2>Your Hand <span id="player-total" class="hidden"></span></h2>
+            <div id="player-hand" class="flex">
+              <div class="empty-card"></div>
+            </div>
+          </article>
+        </section>
+        <section id="right-column" class="flex">
+          <img id="deck" src="img/facedown-card.webp" alt="facedown-card representing deck">
+          <p id="result"></p>
+          <article id="bank">
+            <h2>Current Earnings:</h2>
+            <p>$<span id="money-ct"></span></p>
+          </article>
+        </section>
+      </article>
+      <article id="end-view" class="hidden">
+        <h3>
+          Thank you for playing Blackjack Lite! Your final earnings were:
+          <br>
+          <span id="final-money">0</span>
+        </h3>
+      </article>
+    </main>
+  </body>
+</html>

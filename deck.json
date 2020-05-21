@@ -1,0 +1,67 @@
+[
+  {
+    "name": "two-of-hearts",
+    "suit": "hearts",
+    "value": 2
+  },
+  {
+    "name": "three-of-hearts",
+    "suit": "hearts",
+    "value": 3
+  },
+  {
+    "name": "four-of-hearts",
+    "suit": "hearts",
+    "value": 4
+  },
+  {
+    "name": "five-of-hearts",
+    "suit": "hearts",
+    "value": 5
+  },
+  {
+    "name": "six-of-hearts",
+    "suit": "hearts",
+    "value": 6
+  },
+  {
+    "name": "seven-of-hearts",
+    "suit": "hearts",
+    "value": 7
+  },
+  {
+    "name": "eight-of-hearts",
+    "suit": "hearts",
+    "value": 8
+  },
+  {
+    "name": "nine-of-hearts",
+    "suit": "hearts",
+    "value": 9
+  },
+  {
+    "name": "ten-of-hearts",
+    "suit": "hearts",
+    "value": 10
+  },
+  {
+    "name": "jack-of-hearts",
+    "suit": "hearts",
+    "value": 10
+  },
+  {
+    "name": "queen-of-hearts",
+    "suit": "hearts",
+    "value": 10
+  },
+  {
+    "name": "king-of-hearts",
+    "suit": "hearts",
+    "value": 10
+  },
+  {
+    "name": "ace-of-hearts",
+    "suit": "hearts",
+    "value": 11
+  }
+]

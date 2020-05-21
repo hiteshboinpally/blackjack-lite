@@ -1,0 +1,117 @@
+/*
+Name: Hitesh Boinpally
+Date: April 22, 2020
+Section: CSE 154 AC
+This is the styles.css page for my Blackjack Lite game. It is used to give the game a casino
+feel and proper images.
+*/
+
+body, h2, #menu-view, #dealer {
+  margin: auto;
+}
+
+input, button, #bank, #end-view {
+  background-color: rgb(231, 58, 93);
+  border: solid black;
+}
+
+body, button {
+  font-family: 'Lustria', serif;
+}
+
+body {
+  background-image: url("img/green-pattern.jpg");
+  width: 80%;
+}
+
+h1 {
+  font-size: 70px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+input {
+  font-size: 30px;
+}
+
+button {
+  font-size: 35px;
+  border-radius: 15%;
+}
+
+#menu-view {
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+}
+
+#menu-view label {
+  margin-left: 10%;
+}
+
+#game-view {
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#left-column, #middle-column, #right-column {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+#left-column {
+  margin-top: 20%;
+}
+
+#dealer-hand img:first-child, #player-hand img:first-child {
+  margin-left: auto;
+}
+
+#bet {
+  flex-direction: column;
+  font-size: 40px;
+}
+
+#bank {
+  padding: 10px;
+  border-radius: 10%;
+  border-style: ridge;
+}
+
+#bank p {
+  font-size: 30px;
+}
+
+#end-view {
+  text-align: center;
+  font-size: 45px;
+  border-radius: 7%;
+}
+
+#final-money {
+  font-size: 150%;
+}
+
+#result {
+  font-size: 20px;
+}
+
+.card, .empty-card {
+  width: 220px;
+  height: 300px;
+  margin-left: -162px;
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
