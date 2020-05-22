@@ -189,20 +189,24 @@
    * @param {string} result - the result message of the turn
    */
   function updateBank(result) {
-    id("result").textContent = result;
 
     let currBet = id("curr-bet").value;
     let bank = id("money-ct");
     let currMoney = parseInt(bank.textContent);
 
-    if (currBet !== "0" || currBet !== "") {
-      currBet = parseInt(currBet);
-      if (result.includes("Congrats")) {
-        currMoney += currBet;
-      } else if (result.includes("Whoops")) {
-        currMoney -= currBet;
-      }
+    currBet = parseInt(currBet);
+    if (result.includes("Congrats")) {
+      currMoney += currBet;
+      result += " Plus $" + currBet;
+    } else if (result.includes("Whoops")) {
+      currMoney -= currBet;
+      result += " Minus $" + currBet;
     }
+
+    let turnLog = gen("p");
+    turnLog.textContent = result;
+    id("log").appendChild(turnLog);
+    turnLog.scrollIntoView();
 
     bank.textContent = currMoney;
     id("curr-bet").setAttribute("max", currMoney);
@@ -235,7 +239,6 @@
    * game option buttons. Empties the player and dealer's hands as well.
    */
   function resetGame() {
-    id("result").textContent = "";
     playerTotal = 0;
     dealerTotal = 0;
     usedCards.clear();

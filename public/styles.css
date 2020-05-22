@@ -10,7 +10,7 @@ body, h2, #menu-view, #dealer {
   margin: auto;
 }
 
-input, button, #bank, #end-view {
+input, button, #bank, #end-view, #log {
   background-color: rgb(231, 58, 93);
   border: solid black;
 }
@@ -21,7 +21,7 @@ body, button {
 
 body {
   background-image: url("img/green-pattern.jpg");
-  width: 80%;
+  width: 90%;
 }
 
 h1 {
@@ -98,8 +98,12 @@ button {
   font-size: 150%;
 }
 
-#result {
-  font-size: 20px;
+#log {
+  height: 200px;
+  width: 335px;
+  font-size: 18px;
+  overflow: auto;
+  margin-bottom: 5%;
 }
 
 .card, .empty-card {
