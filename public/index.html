@@ -23,9 +23,9 @@
       <article id="menu-view" class="flex">
         <p>Blackjack Lite is just like Blackjack with a few changes!!</p>
         <ul>
-          <li>Only one suit is used</li>
           <li>You can only hit or stand (no splitting or doubling down)</li>
-          <li>There is no insurance or bonus for Blackjacks</li>
+          <li>There is no insurance for Blackjacks</li>
+          <li>There is a 2x bonus for a user Blackjack</li>
           <li>Aces are always treated as 11</li>
         </ul>
         <p>
@@ -41,6 +41,7 @@
           <label id="bet" class="flex">
             Current Bet:
             <input id="curr-bet" type="number" placeholder="Enter a bet..." value="0" min="0">
+            <span id="error-txt" class="hidden">Please enter a valid bet</span>
           </label>
           <article id="game-options">
             <button id="hit" class="hidden top-button">Hit</button>
@@ -56,7 +57,7 @@
         </section>
         <section id="middle-column" class="flex">
           <article id="dealer">
-            <h2>Dealer's Hand</h2>
+            <h2>Dealer's Hand <span id="dealer-total" class="hidden"></span></h2>
             <div id="dealer-hand" class="flex">
               <div class="empty-card"></div>
             </div>

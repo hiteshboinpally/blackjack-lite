@@ -47,7 +47,11 @@ function processWinner(playerTotal, dealerTotal) {
   if (playerTotal > BLACKJACK) {
     result = "Whoops! Looks like you busted!";
   } else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal) {
-    result = "Congrats! You won!";
+    if (playerTotal === BLACKJACK) {
+      result = "Blackjack!"
+    } else {
+      result = "Congrats! You won!";
+    }
   } else if (playerTotal < dealerTotal) {
     result = "Whoops! Looks like you lost!";
   } else {

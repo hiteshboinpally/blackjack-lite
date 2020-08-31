@@ -56,12 +56,23 @@
    * Begins an initial round, dealing initial hands. Also locks the curr-bet
    * input. Toggles the game buttons.
    */
-  function clickContinue() {
-    toggleGame();
-    id("curr-bet").setAttribute("readonly", "");
+  async function clickContinue() {
+    if (canBet()) {
+      id("error-txt").classList.add("hidden");
+      toggleGame();
+      id("curr-bet").setAttribute("readonly", "");
 
-    setDealerHand();
-    setPlayerHand();
+      await setDealerHand();
+      await setPlayerHand();
+      setTimeout(() => {
+        id("dealer-total").classList.remove("hidden");
+        id("dealer-total").textContent = ": " + dealerTotal;
+        id("player-total").classList.remove("hidden");
+        id("player-total").textContent = ": " + playerTotal;
+      }, 2 * CARD_TURN_TIME);
+    } else {
+      id("error-txt").classList.remove("hidden");
+    }
   }
 
   /**
@@ -70,6 +81,7 @@
    */
   function clickHit() {
     hit(id("player-hand"), true);
+    id("player-total").textContent = ": " + playerTotal;
     if (playerTotal >= BLACKJACK) {
       clickStand();
     }
@@ -160,10 +172,12 @@
   function dealerTurn() {
     let dealerHand = id("dealer-hand");
     dealerHand.replaceChild(getRandomCard(false), dealerHand.firstElementChild);
+    id("dealer-total").textContent = ": " + dealerTotal;
 
     let timerId = setInterval(function() {
       if (dealerTotal < SOFT_17) {
         hit(dealerHand, false);
+        id("dealer-total").textContent = ": " + dealerTotal;
       } else {
         clearInterval(timerId);
         fetchResult();
@@ -195,7 +209,10 @@
     let currMoney = parseInt(bank.textContent);
 
     currBet = parseInt(currBet);
-    if (result.includes("Congrats")) {
+    if (result.includes("Blackjack")) {
+      currMoney += currBet * 2;
+      result += " Plus $" + (currBet * 2);
+    } else if (result.includes("Congrats")) {
       currMoney += currBet;
       result += " Plus $" + currBet;
     } else if (result.includes("Whoops")) {
@@ -245,6 +262,8 @@
     id("curr-bet").removeAttribute("readonly");
     id("hit").addEventListener("click", clickHit);
     id("stand").addEventListener("click", clickStand);
+    id("dealer-total").classList.add("hidden");
+    id("player-total").classList.add("hidden");
 
     let blankCard = gen("div");
     blankCard.classList.add("empty-card");
@@ -301,6 +320,21 @@
     newCard.src = "img/" + deck[index].suit + "/" + cardName + ".svg";
     newCard.alt = cardName + " of hearts";
     return newCard;
+  }
+
+  /**
+   * Checks of the currently inputed bet is valid (not greater than the user's total money and
+   * non-negative).
+   * @returns {boolean} true if the bet is valid, false otherwise.
+   */
+  function canBet() {
+    let currBet = id("curr-bet").value;
+    let currMoney = parseInt(id("money-ct").textContent);
+    if (currBet < 0 || currBet > currMoney) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   /**
